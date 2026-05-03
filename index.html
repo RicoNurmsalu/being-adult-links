@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Being Adult — Bill Invite</title>
+  <title>Being Adult &#x2014; Bill Invite</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -17,7 +17,7 @@
       justify-content: center;
       padding: 32px 24px;
     }
-    .coin { font-size: 64px; margin-bottom: 24px; font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; }
+    .coin { font-size: 64px; margin-bottom: 24px; }
     h1 {
       font-size: 20px;
       color: #FFD700;
@@ -41,7 +41,7 @@
       margin-bottom: 32px;
       text-align: center;
     }
-    .bill-icon { font-size: 40px; margin-bottom: 12px; font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; }
+    .bill-icon { font-size: 40px; margin-bottom: 12px; }
     .bill-name {
       font-size: 14px;
       color: #E8D4FF;
@@ -93,12 +93,12 @@
   </style>
 </head>
 <body>
-  <div class="coin">💰</div>
+  <div class="coin">&#x1F4B0;</div>
   <h1>BEING ADULT</h1>
   <p class="sub">BILL REMINDER APP</p>
 
   <div class="card" id="bill-card" style="display:none">
-    <div class="bill-icon" id="b-icon">💰</div>
+    <div class="bill-icon" id="b-icon">&#x1F4B0;</div>
     <div class="bill-name" id="b-name">...</div>
     <div class="bill-amount" id="b-amount">...</div>
     <div class="bill-rec" id="b-rec">...</div>
@@ -107,7 +107,7 @@
   <a class="btn" id="open-btn" href="#">OPEN IN BEING ADULT</a>
   <a class="btn btn-store" id="store-btn"
      href="https://play.google.com/store/apps/details?id=com.example.being_adult">
-    GET THE APP — PLAY STORE
+    GET THE APP &#x2014; PLAY STORE
   </a>
   <p class="msg" id="status-msg">Opening app...</p>
 
@@ -123,7 +123,7 @@
     }
 
     if (bill) {
-      document.getElementById('b-icon').textContent   = bill.i || '💰';
+      document.getElementById('b-icon').textContent   = bill.i || '\u{1F4B0}';
       document.getElementById('b-name').textContent   = (bill.n || 'Bill').toUpperCase();
       document.getElementById('b-amount').textContent = bill.a || '';
       document.getElementById('b-rec').textContent    = (bill.r || '').toUpperCase();
@@ -133,7 +133,6 @@
     const deepLink = 'beingadult://import' + window.location.search;
     document.getElementById('open-btn').href = deepLink;
 
-    // Auto-attempt to open the app
     let opened = false;
     document.getElementById('open-btn').addEventListener('click', function(e) {
       e.preventDefault();
@@ -142,12 +141,11 @@
       setTimeout(() => {
         if (document.visibilityState !== 'hidden') {
           document.getElementById('status-msg').textContent =
-            "App not found — get it on the Play Store below.";
+            'App not found — get it on the Play Store below.';
         }
       }, 1800);
     });
 
-    // Auto-open on page load
     setTimeout(() => {
       if (!opened) {
         window.location.href = deepLink;
