@@ -93,7 +93,7 @@
   </style>
 </head>
 <body>
-  <div class="coin">
+  <div class="coin" id="coin-header">
     <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
       <circle cx="36" cy="36" r="34" fill="#B8860B"/>
       <circle cx="36" cy="36" r="30" fill="#FFD700"/>
@@ -131,11 +131,17 @@
     }
 
     if (bill) {
-      document.getElementById('b-icon').textContent   = bill.i || '$';
+      const icon = bill.i || '';
+      document.getElementById('b-icon').textContent   = icon;
       document.getElementById('b-name').textContent   = (bill.n || 'Bill').toUpperCase();
       document.getElementById('b-amount').textContent = bill.a || '';
       document.getElementById('b-rec').textContent    = (bill.r || '').toUpperCase();
       document.getElementById('bill-card').style.display = 'block';
+      if (icon) {
+        const coinEl = document.getElementById('coin-header');
+        coinEl.textContent = icon;
+        coinEl.style.fontSize = '72px';
+      }
     }
 
     const deepLink = 'beingadult://import' + window.location.search;
