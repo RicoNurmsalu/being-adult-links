@@ -17,7 +17,7 @@
       justify-content: center;
       padding: 32px 24px;
     }
-    .coin { font-size: 64px; margin-bottom: 24px; }
+    .coin { margin-bottom: 24px; }
     h1 {
       font-size: 20px;
       color: #FFD700;
@@ -93,7 +93,15 @@
   </style>
 </head>
 <body>
-  <div class="coin">&#x1F4B0;</div>
+  <div class="coin">
+    <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="36" cy="36" r="34" fill="#B8860B"/>
+      <circle cx="36" cy="36" r="30" fill="#FFD700"/>
+      <circle cx="36" cy="36" r="26" fill="#FFE44D"/>
+      <circle cx="28" cy="28" r="8" fill="#FFF0A0" opacity="0.5"/>
+      <text x="36" y="44" text-anchor="middle" font-family="'Courier New',monospace" font-size="22" font-weight="bold" fill="#7A5800">$</text>
+    </svg>
+  </div>
   <h1>BEING ADULT</h1>
   <p class="sub">BILL REMINDER APP</p>
 
@@ -123,7 +131,7 @@
     }
 
     if (bill) {
-      document.getElementById('b-icon').textContent   = bill.i || '\u{1F4B0}';
+      document.getElementById('b-icon').textContent   = bill.i || '$';
       document.getElementById('b-name').textContent   = (bill.n || 'Bill').toUpperCase();
       document.getElementById('b-amount').textContent = bill.a || '';
       document.getElementById('b-rec').textContent    = (bill.r || '').toUpperCase();
