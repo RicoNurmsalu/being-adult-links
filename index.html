@@ -42,6 +42,7 @@
       text-align: center;
     }
     .bill-icon { font-size: 40px; margin-bottom: 12px; }
+    .bill-icon img { width: 48px; height: 48px; vertical-align: middle; }
     .bill-name {
       font-size: 14px;
       color: #E8D4FF;
@@ -91,9 +92,10 @@
       margin-top: 8px;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/twemoji@14/dist/twemoji.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="coin" id="coin-header">
+  <div class="coin">
     <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
       <circle cx="36" cy="36" r="34" fill="#B8860B"/>
       <circle cx="36" cy="36" r="30" fill="#FFD700"/>
@@ -137,11 +139,7 @@
       document.getElementById('b-amount').textContent = bill.a || '';
       document.getElementById('b-rec').textContent    = (bill.r || '').toUpperCase();
       document.getElementById('bill-card').style.display = 'block';
-      if (icon) {
-        const coinEl = document.getElementById('coin-header');
-        coinEl.textContent = icon;
-        coinEl.style.fontSize = '72px';
-      }
+      twemoji.parse(document.getElementById('b-icon'), { folder: 'svg', ext: '.svg' });
     }
 
     const deepLink = 'beingadult://import' + window.location.search;
